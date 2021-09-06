@@ -64,7 +64,7 @@
 
       <div>
      
-      <%= form.hidden_field :bet , value: "player-one" %>
+      <%= form.hidden_field :bet , value: "player one" %>
       </div>
 
       <div>
@@ -79,8 +79,9 @@
     <% end %>
 </div>
 <button id="player-one-button" class="players-button"><a  href= "<%= transactionhistories_url %>" data-remote="true">Player One </a></button>
-
 </div>
+
+<a href= "<%= edit_transactionhistory_path(@lasttransaction) %>" data-remote="true" style="border: 2px solid">FIGHT </a>
 
 <div id="player-two-side">
 <div id="amount-bet-for-player-two"></div>
@@ -101,8 +102,7 @@
         <% end %>
 
       <div>
-     
-      <%= form.hidden_field :bet , value: "player-two" %>
+      <%= form.hidden_field :bet , value: "player two" %>
       </div>
 
       <div>
@@ -116,23 +116,23 @@
       </div>
     <% end %>
 </div>
-<button id="player-two-button" class="players-button"><a  href= "<%= transactionhistories_url %>" data-remote="true">Player Two </a></button>
+<button id="player-two-button" class="players-button"><a  href= "<%= transactionhistories_url %>">Player Two </a></button>
 <div id="amount"></div>
 </div>
 </div>
+
+
+
+
 <script>
 
 document.getElementById('bet-interface').style.visibility="hidden";
 document.getElementById('bet-interface-for-player-two').style.visibility="hidden";
 
 
-
 document.getElementById('player-one-button').addEventListener('click',function(){
 document.getElementById('bet-interface').style.visibility="visible";
 document.getElementById('bet-interface-for-player-two').style.visibility="hidden";
-
- 
-  
 })
 
 document.getElementById('player-two-button').addEventListener('click',function(){
@@ -140,6 +140,7 @@ document.getElementById('bet-interface-for-player-two').style.visibility="visibl
 document.getElementById('bet-interface').style.visibility="hidden";
  
 })
+
 
 
 </script>

@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 2021_09_03_020339) do
     t.string "bet"
     t.integer "amountofbet"
     t.bigint "user_id", null: false
+    t.string "result"
+    t.string "ifwin"
+    t.integer "currentpoints"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_transactionhistories_on_user_id"

@@ -1,4 +1,6 @@
 class TransactionhistoriesController < ApplicationController
+  before_action :set_transactionhistory, only: %i[ show 
+   update destroy ]
   before_action :authenticate_user!
   before_action :initialize_client
 
@@ -9,6 +11,7 @@ class TransactionhistoriesController < ApplicationController
     @battles = @client.getPlayerByPowerstats
     @battles2 = @client.getPlayerByPowerstats
     @transactionhistory = current_user.transactionhistories.build
+    @lasttransaction = Transactionhistory.last
     @user = current_user.id
   end
 
@@ -23,6 +26,29 @@ class TransactionhistoriesController < ApplicationController
 
   # GET /transactionhistories/1/edit
   def edit
+    
+    number = 5
+    randomnumber = rand(10)
+    @transactionhistory = Transactionhistory.last
+
+    if randomnumber > number
+      @transactionhistory.update(result: "player one")
+      @playeronewin = @transactionhistory.result
+    elsif randomnumber < number
+      @transactionhistory.update(result: "player two")
+      @playertwowin = @transactionhistory.result
+    else
+      @transactionhistory.update(result: "draw")
+      @draw = @transactionhistory.result
+    end
+
+    if @transactionhistory.bet == @transactionhistory.result
+      @transactionhistory.update(ifwin: "WIN")
+
+    elsif @transactionhistory.bet != @transactionhistory.result
+      @transactionhistory.update(ifwin: "LOSE")
+    end
+
   end
 
   # POST /transactionhistories or /transactionhistories.json
