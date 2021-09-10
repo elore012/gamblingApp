@@ -1,92 +1,252 @@
+<body class="bg-white.bg-gradient">
+<style>
+.container{
+  
+    width:200px;
+    padding:0px;
+   
+}
+
+.skill {
+    background-color: orange;
+    color:  white;
+    text-align: right;
+    font-size: 15px;
+    padding: 0px;
+}
+.intelligence{
+  width:  <%= @battles["powerstats"]["intelligence"] %>%
+}
+.intelligence2{
+  width:  <%= @battles2["powerstats"]["intelligence"] %>%
+}
+
+.strength{
+  width:  <%= @battles["powerstats"]["strength"] %>%
+}
+.strength2{
+  width:  <%= @battles2["powerstats"]["strength"] %>%
+}
+.speed{
+  width:  <%= @battles["powerstats"]["speed"] %>%
+}
+.speed2{
+  width:  <%= @battles2["powerstats"]["speed"] %>%
+}
+.durability{
+  width:  <%= @battles["powerstats"]["durability"] %>%
+}
+.durability2{
+  width:  <%= @battles2["powerstats"]["durability"] %>%
+}
+.power{
+  width:  <%= @battles["powerstats"]["power"] %>%
+}
+.power2{
+  width:  <%= @battles2["powerstats"]["power"] %>%
+}
+.combat{
+  width:  <%= @battles["powerstats"]["combat"] %>%
+}
+.combat2{
+  width:  <%= @battles2["powerstats"]["combat"] %>%
+}
+</style>
+
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-info">
+  <span id="header-title" class="container-fluid"> Gameapp </span>
+  <span id="e-wallet">Current points: <%= @user %></span>
+
+ <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  
+      <div  id="signout" class="d-flex">
+        <button class="btn btn-info">
+        <% if user_signed_in? %>
+        <%= link_to "Signout" , destroy_user_session_path, method: :delete %>
+        <%end%></button>
+      </div>
+    </div>
+  </div>
+</nav>
 
 
 
-<% if user_signed_in? %>
-<%= link_to "Signout" , destroy_user_session_path, method: :delete %>
-<%end%>
 
 
-<body>
-
-<div id="index-header">
-<div id="header-title"> Fight Fight Fight </div>
-<div id="e-wallet">Current points: </div>
-</div>
+<div id="who-wins"></div>
 
 <div id="index-page">
-<div class="players">
-<img src = <%= @battles["image"]["url"] %>>image</img>
-<h5> Name: <%= @battles["name"] %> </h5>
-<h5> Intelligence:          <%= @battles["powerstats"]["intelligence"] %></h5>
-<h5> Strength:          <%= @battles["powerstats"]["strength"] %></h5>
-<h5> Speed:          <%= @battles["powerstats"]["speed"] %></h5>
-<h5> Durability:          <%= @battles["powerstats"]["durability"] %></h5>
-<h5> Power:          <%= @battles["powerstats"]["power"] %></h5>
-<h5> Combat:          <%= @battles["powerstats"]["combat"] %></h5>
+
+  <div class="players">
+      <div id="player-one-name"><%= @battles["name"] %></div> 
+      <img src = <%= @battles["image"]["url"] %>></img>
+
+      <div class="test">
+          <div class="stats">Intelligence </div>
+            <div class="container">
+                  <div class="skill intelligence bg-danger">
+                    <%= @battles["powerstats"]["intelligence"] %>
+                  </div>
+          </div>
+      </div>
+
+      <div class="test">
+          <div class="stats">Strength </div>
+            <div class="container">
+                  <div class="skill strength bg-danger">
+                    <%= @battles["powerstats"]["strength"] %>
+                  </div>
+          </div>
+      </div>
+
+      <div class="test">
+        <div class="stats">Speed </div>
+          <div class="container">
+                <div class="skill speed bg-danger">
+                  <%= @battles["powerstats"]["speed"] %>
+                </div>
+          </div>
+      </div>
+
+      <div class="test">
+          <div class="stats">Durability </div>
+            <div class="container">
+                  <div class="skill durability bg-danger">
+                    <%= @battles["powerstats"]["durability"] %>
+                  </div>
+          </div>
+      </div>
+
+      <div class="test">
+          <div class="stats">Power </div>
+             <div class="container">
+                    <div class="skill power bg-danger">
+                      <%= @battles["powerstats"]["power"] %>
+                    </div>
+            </div>
+      </div>
+
+      <div class="test">
+        <div class="stats">Combat </div>
+          <div class="container">
+                <div class="skill combat bg-danger">
+                  <%= @battles["powerstats"]["combat"] %>
+                </div>
+           </div>
+      </div>
+
+  </div>
 
 
-
-</div>
 <div id="vs" class="players">
-<div id="vs-letter">VS</div>
-
-</div>
-<div class="players">
-<div class="image"><img src = <%= @battles2["image"]["url"] %>>image</img></div>
-<h5> Name: <%= @battles2["name"] %> </h5>
-<h5> Intelligence:          <%= @battles2["powerstats"]["intelligence"] %></h5>
-<h5> Strength:          <%= @battles2["powerstats"]["strength"] %></h5>
-<h5> Speed:          <%= @battles2["powerstats"]["speed"] %></h5>
-<h5> Durability:          <%= @battles2["powerstats"]["durability"] %></h5>
-<h5> Power:          <%= @battles2["powerstats"]["power"] %></h5>
-<h5> Combat:          <%= @battles2["powerstats"]["combat"] %></h5>
-
-</div>
+  <div id="vs-letter">VS <div id="amount-bet-for-player-one"></div></div>
+ 
 </div>
 
-<div id="betting-div">
-<div id="player-one-side">
-<div id="amount-bet-for-player-one"></div>
-<div id="bet-interface">
 
+  <div class="players">
+  <div id="player-two-name"><%= @battles2["name"] %></div>
+      <div class="image"><img src = <%= @battles2["image"]["url"] %>></img></div>
+     
+      <div class="test">
+         <div class="stats">Intelligence </div>
+            <div class="container">
+                  <div class="skill intelligence2 bg-primary">
+                    <%= @battles2["powerstats"]["intelligence"] %>
+                  </div>
+             </div>
+      </div>
+
+      <div class="test">
+         <div class="stats">Strength </div>
+            <div class="container">
+                  <div class="skill strength2 bg-primary">
+                    <%= @battles2["powerstats"]["strength"] %>
+                  </div>
+             </div>
+      </div>
+
+      <div class="test">
+      <div class="stats">Speed </div>
+         <div class="container">
+               <div class="skill speed2 bg-primary">
+                 <%= @battles2["powerstats"]["speed"] %>
+               </div>
+          </div>
+   </div>
+
+   <div class="test">
+   <div class="stats">Durability </div>
+      <div class="container">
+            <div class="skill durability2 bg-primary">
+              <%= @battles2["powerstats"]["durability"] %>
+            </div>
+       </div>
+    </div>
+
+    <div class="test">
+    <div class="stats">Power </div>
+      <div class="container">
+            <div class="skill power2 bg-primary">
+              <%= @battles2["powerstats"]["power"] %>
+            </div>
+        </div>
+    </div>
+
+    <div class="test">
+    <div class="stats">Combat </div>
+      <div class="container">
+            <div class="skill combat2 bg-primary">
+              <%= @battles2["powerstats"]["combat"] %>
+            </div>
+        </div>
+    </div>
+    
+  </div>
+</div>
+
+
+<div id="betting-div" class="border border-warning border-3">
+  <div id="player-one-side">
+    
+
+    <div id="bet-interface">
       <%= form_for @transactionhistory, remote: true do |form| %>
         <% if @transactionhistory.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(transactionhistory.errors.count, "error") %> prohibited this transactionhistory from being saved:</h2>
-
             <ul>
               <% @transactionhistory.errors.each do |error| %>
                 <li><%= error.full_message %></li>
               <% end %>
             </ul>
           </div>
-        <% end %>
-
-      <div>
-     
-      <%= form.hidden_field :bet , value: "player one" %>
-      </div>
-
-      <div>
-       <%= form.label :amountofbet %>
-       <%=form.text_field :amountofbet , id: 'player-one-bet-amount' %>
-       <%= form.hidden_field :user_id , value: current_user.id%>
-      </div>
-
-      <div id="submit-form">
-      <%= form.submit %>
-      </div>
-    <% end %>
-</div>
-<button id="player-one-button" class="players-button"><a  href= "<%= transactionhistories_url %>" data-remote="true">Player One </a></button>
+           <% end %>
+      
+   
+        <%= form.hidden_field :bet , value: "player one" %>
+        <%= form.hidden_field :currentpoints, value: @user %>
+        <%= form.hidden_field :user_id , value: current_user.id%>
+        <%= form.label :amount %>
+        <%=form.text_field :amountofbet , id: 'player-one-bet-amount' %>
+        <%= form.submit "Place bet" , id: 'submit-button-one',class: 'btn btn-danger' %>
+        <%end%>
+       
+  </div>
+  <div id="qwerty" class="text-warning bg-dark"></div>
+<br>
+<button id="player-one-button"class="btn btn-danger ><a  href= "<%= transactionhistories_url %>" data-remote="true">Player One </a></button>
 </div>
 
-<a href= "<%= edit_transactionhistory_path(@lasttransaction) %>" data-remote="true" style="border: 2px solid">FIGHT </a>
+
+<button id= "fight-button"class="btn btn-success" ><a href= "<%= edit_transactionhistory_path(@lasttransaction) %>" data-remote="true">FIGHT </a></button>
 
 <div id="player-two-side">
 <div id="amount-bet-for-player-two"></div>
-<div id="bet-interface-for-player-two">
 
+<div id="bet-interface-for-player-two">
 
       <%= form_for @transactionhistory, remote: true do |form| %>
         <% if @transactionhistory.errors.any? %>
@@ -101,30 +261,28 @@
           </div>
         <% end %>
 
-      <div>
-      <%= form.hidden_field :bet , value: "player two" %>
-      </div>
-
-      <div>
-       <%= form.label :amountofbet %>
-       <%=form.text_field :amountofbet ,id: 'player-two-bet-amount' %>
-       <%= form.hidden_field :user_id , value: current_user.id%>
-      </div>
-
-      <div id="submit-form">
-      <%= form.submit %>
-      </div>
-    <% end %>
+            <%= form.hidden_field :bet , value: "player two" %>
+            <%= form.hidden_field :currentpoints, value: @user %>
+            <%= form.hidden_field :user_id , value: current_user.id%>
+            <%= form.label :amount %>
+            <%=form.text_field :amountofbet , id: 'player-two-bet-amount' %>
+            <%= form.submit "Place bet" , id: 'submit-button-two', class: 'btn btn-primary' %>
+            <%end%>
+          
+           
+        </div>
+       
+        <br>
+<button id="player-two-button"type ="button" class="btn btn-primary"><a  href= "<%= transactionhistories_url %>">Player Two </a></button>
+    </div>
 </div>
-<button id="player-two-button" class="players-button"><a  href= "<%= transactionhistories_url %>">Player Two </a></button>
-<div id="amount"></div>
-</div>
-</div>
-
 
 
 
 <script>
+
+
+var player_one_button = document.getElementById('player-one-button')
 
 document.getElementById('bet-interface').style.visibility="hidden";
 document.getElementById('bet-interface-for-player-two').style.visibility="hidden";
@@ -133,13 +291,29 @@ document.getElementById('bet-interface-for-player-two').style.visibility="hidden
 document.getElementById('player-one-button').addEventListener('click',function(){
 document.getElementById('bet-interface').style.visibility="visible";
 document.getElementById('bet-interface-for-player-two').style.visibility="hidden";
+document.getElementById('qwerty').innerHTML=""
 })
 
 document.getElementById('player-two-button').addEventListener('click',function(){
 document.getElementById('bet-interface-for-player-two').style.visibility="visible";
-document.getElementById('bet-interface').style.visibility="hidden";
+document.getElementById('bet-interface').style.visibity="hidden";
+document.getElementById('qwerty').innerHTML=""
  
 })
+
+document.getElementById('submit-button-one').addEventListener('click',function(){
+  document.getElementById('bet-interface').style.visibility="hidden";
+document.getElementById('bet-interface-for-player-two').style.visibility="hidden";
+})
+
+document.getElementById('submit-button-two').addEventListener('click',function(){
+  document.getElementById('bet-interface').style.visibility="hidden";
+document.getElementById('bet-interface-for-player-two').style.visibility="hidden";
+})
+
+let error = function(){
+  document.getElementById('qwerty').innerHTML = "Insufficent funds"
+}
 
 
 

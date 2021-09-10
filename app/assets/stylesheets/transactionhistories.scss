@@ -1,3 +1,109 @@
 // Place all the styles related to the transactionhistories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// Place all the styles related to the battles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+body{
+    padding: 0;
+}
+//header
+
+#index-header{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    margin-bottom: 20px;
+    height: 50px;
+    
+    
+}
+
+#header-title{
+color: white;
+text-shadow: 0 0 5px black;
+font-size: 20px;
+}
+
+#e-wallet{
+    color: white;
+text-shadow: 0 0 5px black;
+font-size: 20px;
+}
+
+img{
+    height:400px;
+    width:333px;
+}
+#index-page{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 1000px;
+    margin: auto;
+}
+.players{
+    width: 333px;
+   
+ 
+}
+#vs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+#vs-letter{
+    font-size: 200px;
+}
+
+.fight-button{
+    color: white;
+    background-color:red;
+    width:150px;
+    height: 
+    50px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+ #test{
+    background-color: red;
+    width: 120px;
+    height: 40px;
+}
+
+// beting portion css 
+
+#current_points{
+    color:green;
+}
+
+
+#betting-div{
+    display: flex;
+    width: 1000px;
+    margin: auto;
+    border: 1px solid black;
+    justify-content: space-between;
+}
+
+.players-button{
+    width: 333px;
+    height: 70px;
+}
+
+#start-fight{
+    width: 333px;
+    height: 114px;
+}
+
+#index-page{
+    display:flex;
+    flex-direction:column;
+}

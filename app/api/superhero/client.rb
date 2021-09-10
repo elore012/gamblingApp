@@ -21,7 +21,6 @@ module Superhero
     end
 
         private
-
         def request(http_method: , endpoint: , params: {})
         @response = connection.public_send(http_method, endpoint, params)
         parsed_data = JSON.parse(@response.body)

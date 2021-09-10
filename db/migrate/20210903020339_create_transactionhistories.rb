@@ -7,6 +7,7 @@ class CreateTransactionhistories < ActiveRecord::Migration[6.1]
       t.string :result
       t.string :ifwin
       t.integer :currentpoints
+      t.integer :pointsaftermatch , default:0
       t.timestamps
     end
   end

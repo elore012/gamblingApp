@@ -1,6 +1,7 @@
 
 document.getElementById('player-one-button').disabled = true
 document.getElementById('player-two-button').disabled = true
-document.getElementById('amount-bet-for-player-one').innerHTML = "<%= @transactionhistory.result %>"
+
+document.getElementById('who-wins').innerHTML = "<%=@transactionhistory.result%> WINS"
 
 
