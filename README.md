@@ -9,6 +9,8 @@ and it will automatically update the amount of bet and the player that the user 
 
 After the user place his bet , a fight button will pop up and need to click to see the result of the fight 
 
+If player bet is greater than current points , data will not be save and will just return an error " insufficient fund"
+
 once the fight is over , result will show up on the screen and a button to proceed to the next match . 
 
 If current points is less than or equal 0 , The user will redirect to edit page to put current points . 
