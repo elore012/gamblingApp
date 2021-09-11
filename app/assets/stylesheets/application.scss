@@ -36,7 +36,7 @@ img{
     
     width: 1000px;
     margin-top: 20px;
-    height: 100px;
+    height: 120px;
 }
 
 #vs-letter{
@@ -144,6 +144,14 @@ img{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color:  #ffc107;
     
+}
+
+#next-fight{
+    font-size: 25px;
+    display:flex;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:  gray;
 }
 
 #signin{

@@ -5,5 +5,6 @@ document.getElementById('fight-button').disabled=true
 document.getElementById('who-wins').innerHTML = "<%=@transactionhistory.result%> WINS"
 document.getElementById('winorlose').innerHTML = " YOU <%=@transactionhistory.ifwin%>"
 document.getElementById('amount').innerHTML = "Amount you <%=@transactionhistory.ifwin%> is <%=@transactionhistory.amountofbet%>"
+document.getElementById('next-fight').style.visibility="visible";
 
 

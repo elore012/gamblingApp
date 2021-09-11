@@ -56,7 +56,6 @@
 <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-info">
   <span id="header-title" class="container-fluid"> Battle of Superheroes </span>
   <span id="e-wallet">Current points: <%= @user %></span>
-  <%= link_to "Edit" , edit_user_registration_path %>
 
  <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
@@ -212,6 +211,7 @@
 <div id="who-wins"></div>
 <div id="winorlose"></div>
 <div id="amount"></div>
+<div id="next-fight"> <button class="btn-primary">Click for next fight </button></div>
 </div>
 
 <div id="betting-div">
@@ -287,8 +287,8 @@
 <script>
 
 
-var player_one_button = document.getElementById('player-one-button')
-document.getElementById('fight-button').style.visibility="hidden"
+document.getElementById('next-fight').style.visibility="hidden";
+document.getElementById('fight-button').style.visibility="hidden";
 document.getElementById('bet-interface').style.visibility="hidden";
 document.getElementById('bet-interface-for-player-two').style.visibility="hidden";
 
@@ -325,6 +325,10 @@ let playerOneBet = function(){
 let playerTwoBet = function(){
   document.getElementById('amount-bet-for-player-two').innerHTML = "<%= @transactionhistory.amountofbet %>"
 }
+
+document.getElementById('next-fight').addEventListener('click',function(){
+  location.reload();
+})
 
 
 
