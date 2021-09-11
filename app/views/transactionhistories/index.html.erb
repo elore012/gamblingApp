@@ -278,7 +278,8 @@
            
         </div>
         <br>
-<button id="player-two-button"type ="button" class="btn btn-primary"><a  href= "<%= transactionhistories_url %>"><%= @battles2["name"] %></a></button>
+<button id="player-two-button" class="btn btn-primary"><a  href= "<%= transactionhistories_url %>"  data-remote="true"><%= @battles2["name"] %></a></button>
+
     </div>
 </div>
 
@@ -325,8 +326,7 @@ let playerOneBet = function(){
 let playerTwoBet = function(){
   document.getElementById('amount-bet-for-player-two').innerHTML = "<%= @transactionhistory.amountofbet %>"
 }
-
-document.getElementById('next-fight').addEventListener('click',function(){
+document.getElementById("next-fight").addEventListener("click",function(){
   location.reload();
 })
 
