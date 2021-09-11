@@ -18,7 +18,7 @@ class TransactionhistoriesController < ApplicationController
     @user = current_user.current_points 
     @pointsaftermatch = @lasttransaction.pointsaftermatch
 
-    if @user <= 0 && @pointsaftermatch <= 0
+    if @user <= 0 
       redirect_to edit_user_registration_path
     end
 
