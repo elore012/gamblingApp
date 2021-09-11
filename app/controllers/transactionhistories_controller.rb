@@ -12,7 +12,7 @@ class TransactionhistoriesController < ApplicationController
     
     if Transactionhistory.last.blank?
       Transactionhistory.create(bet:"admin",amountofbet:1000,user_id:current_user.id,result:"admin",
-                                ifwin:"admin",currentpoints:0,pointsaftermatch:1000)
+                                ifwin:"admin",currentpoints:0,pointsaftermatch:0)
     end
     @lasttransaction = Transactionhistory.last
     @user = current_user.current_points 
@@ -69,9 +69,7 @@ class TransactionhistoriesController < ApplicationController
           current_user.update(current_points: current_user.current_points - @transactionhistory.amountofbet)
           @transactionhistory.update(pointsaftermatch:current_user.current_points)
         end
-     
-
-    
+  
   end
 
   # POST /transactionhistories or /transactionhistories.json

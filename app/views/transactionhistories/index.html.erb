@@ -54,7 +54,7 @@
 </style>
 
 <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-info">
-  <span id="header-title" class="container-fluid"> Gameapp </span>
+  <span id="header-title" class="container-fluid"> Battle of Superheroes </span>
   <span id="e-wallet">Current points: <%= @user %></span>
 
  <p class="notice"><%= notice %></p>
@@ -142,7 +142,7 @@
 
 <div id="vs" class="players">
   <div id="vs-letter">VS </div>
- 
+  <div id="qwerty" class="text-warning bg-dark"></div>
 </div>
 
 
@@ -240,7 +240,7 @@
         <%end%>
        
   </div>
-  <div id="qwerty" class="text-warning bg-dark"></div>
+  
 <br>
 <button id="player-one-button"class="btn btn-danger ><a  href= "<%= transactionhistories_url %>" data-remote="true"><%= @battles["name"] %></a></button>
 </div>
@@ -276,7 +276,6 @@
           
            
         </div>
-       
         <br>
 <button id="player-two-button"type ="button" class="btn btn-primary"><a  href= "<%= transactionhistories_url %>"><%= @battles2["name"] %></a></button>
     </div>
@@ -288,7 +287,7 @@
 
 
 var player_one_button = document.getElementById('player-one-button')
-
+document.getElementById('fight-button').style.visibility="hidden"
 document.getElementById('bet-interface').style.visibility="hidden";
 document.getElementById('bet-interface-for-player-two').style.visibility="hidden";
 
