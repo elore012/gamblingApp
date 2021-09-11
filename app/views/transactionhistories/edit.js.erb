@@ -3,5 +3,7 @@ document.getElementById('player-one-button').disabled = true
 document.getElementById('player-two-button').disabled = true
 
 document.getElementById('who-wins').innerHTML = "<%=@transactionhistory.result%> WINS"
+document.getElementById('winorlose').innerHTML = " YOU <%=@transactionhistory.ifwin%>"
+document.getElementById('amount').innerHTML = "Amount you <%=@transactionhistory.ifwin%> is <%=@transactionhistory.amountofbet%>"
 
 

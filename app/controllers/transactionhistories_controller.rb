@@ -76,23 +76,24 @@ class TransactionhistoriesController < ApplicationController
 
   # POST /transactionhistories or /transactionhistories.json
   def create
+    
   index
     @transactionhistory = Transactionhistory.new(transactionhistory_params)  
     @bet = @transactionhistory.amountofbet
     @lasttransaction=Transactionhistory.last
     
 
-    if @bet > @user
-        respond_to do |format|
-          format.js { render :js => "error();" }
+        if @bet > @user
+            respond_to do |format|
+              format.js { render :js => "error();" }
+            end
         end
-    end
-  
-    if@transactionhistory.save
-      @user = @user - @bet
-      @transactionhistory.update(pointsaftermatch:@lasttransaction.pointsaftermatch)
-    end
-  
+
+      
+        if@transactionhistory.save
+            @user = @user - @bet
+            @transactionhistory.update(pointsaftermatch:@lasttransaction.pointsaftermatch)
+        end
   end
 
   # PATCH/PUT /transactionhistories/1 or /transactionhistories/1.json

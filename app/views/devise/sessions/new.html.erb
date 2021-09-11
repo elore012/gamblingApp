@@ -1,3 +1,6 @@
+
+<div id="sign-in">
+<div id="sign-in-page">
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -17,10 +20,14 @@
       <%= f.label :remember_me %>
     </div>
   <% end %>
-
+<br>
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in" , class: "btn-primary" %>
   </div>
+  <br>
+ <button class= "btn-danger"> <%= link_to "Signup", new_user_registration_path  %></button>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</div>

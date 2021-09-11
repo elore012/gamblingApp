@@ -75,7 +75,7 @@
 
 
 
-<div id="who-wins"></div>
+
 
 <div id="index-page">
 
@@ -141,7 +141,7 @@
 
 
 <div id="vs" class="players">
-  <div id="vs-letter">VS <div id="amount-bet-for-player-one"></div></div>
+  <div id="vs-letter">VS </div>
  
 </div>
 
@@ -205,10 +205,15 @@
     </div>
     
   </div>
+  
+</div>
+<div id="result" class="container">
+<div id="who-wins"></div>
+<div id="winorlose"></div>
+<div id="amount"></div>
 </div>
 
-
-<div id="betting-div" class="border border-warning border-3">
+<div id="betting-div">
   <div id="player-one-side">
     
 
@@ -237,14 +242,14 @@
   </div>
   <div id="qwerty" class="text-warning bg-dark"></div>
 <br>
-<button id="player-one-button"class="btn btn-danger ><a  href= "<%= transactionhistories_url %>" data-remote="true">Player One </a></button>
+<button id="player-one-button"class="btn btn-danger ><a  href= "<%= transactionhistories_url %>" data-remote="true"><%= @battles["name"] %></a></button>
 </div>
 
 
 <button id= "fight-button"class="btn btn-success" ><a href= "<%= edit_transactionhistory_path(@lasttransaction) %>" data-remote="true">FIGHT </a></button>
 
 <div id="player-two-side">
-<div id="amount-bet-for-player-two"></div>
+
 
 <div id="bet-interface-for-player-two">
 
@@ -273,7 +278,7 @@
         </div>
        
         <br>
-<button id="player-two-button"type ="button" class="btn btn-primary"><a  href= "<%= transactionhistories_url %>">Player Two </a></button>
+<button id="player-two-button"type ="button" class="btn btn-primary"><a  href= "<%= transactionhistories_url %>"><%= @battles2["name"] %></a></button>
     </div>
 </div>
 
@@ -313,6 +318,12 @@ document.getElementById('bet-interface-for-player-two').style.visibility="hidden
 
 let error = function(){
   document.getElementById('qwerty').innerHTML = "Insufficent funds"
+}
+let playerOneBet = function(){
+  document.getElementById('amount-bet-for-player-one').innerHTML = "<%= @transactionhistory.amountofbet %>"
+}
+let playerTwoBet = function(){
+  document.getElementById('amount-bet-for-player-two').innerHTML = "<%= @transactionhistory.amountofbet %>"
 }
 
 
